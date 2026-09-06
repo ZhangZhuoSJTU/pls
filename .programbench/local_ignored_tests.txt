@@ -1,0 +1,43 @@
+# Course-side exclusions: tests that are environment-sensitive outside the
+# benchmark containers. Format: <branch>/<classname>.<testname>
+
+# macOS/APFS filesystem semantics: filenames are stored NFD-normalized (unicode
+# widths of names like café_☕ differ) and case-insensitive (file.txt/File.txt
+# collapse; case tie-break sort order differs). Tests also run as a non-root user,
+# so file ownership shows izhuer:wheel not root:root, and setgid bits on files are
+# not honored (r-x vs r-s). Core listing/detail/sort/filter output passes.
+
+4e239660f8fd/tests.test_args_output.test_align_mode_with_hidden_files
+4e239660f8fd/tests.test_args_output.test_current_directory_dot_argument
+4e239660f8fd/tests.test_args_output.test_detail_user_group_columns
+4e239660f8fd/tests.test_args_output.test_detail_view_long_filename_cell_formatting
+4e239660f8fd/tests.test_args_output.test_different_root_directories
+4e239660f8fd/tests.test_args_output.test_narrow_terminal_grid_layout
+4e239660f8fd/tests.test_args_output.test_no_header_mode
+4e239660f8fd/tests.test_basic.test_case_sensitive_filenames
+4e239660f8fd/tests.test_detail_meta.test_det_field_user_group_shows_ownership
+4e239660f8fd/tests.test_detail_meta.test_det_multiple_fields_combined
+4e239660f8fd/tests.test_detail_meta.test_det_special_permissions_setuid_setgid
+4e239660f8fd/tests.test_detail_size_time.test_empty_file_zero_blocks
+4e239660f8fd/tests.test_detail_size_time.test_sparse_file_blocks_vs_real
+4e239660f8fd/tests.test_graphics.test_icon_case_sensitivity_in_extensions
+4e239660f8fd/tests.test_perm_exc.test_all_special_bits_combined_with_execute
+4e239660f8fd/tests.test_perm_exc.test_all_special_bits_combined_without_execute
+4e239660f8fd/tests.test_perm_exc.test_mixed_special_permissions_in_directory
+4e239660f8fd/tests.test_perm_exc.test_octal_permissions_all_special_bits
+4e239660f8fd/tests.test_perm_exc.test_octal_special_bits_all_combinations
+4e239660f8fd/tests.test_perm_exc.test_setgid_bit_with_execute_lowercase_s
+4e239660f8fd/tests.test_perm_exc.test_setgid_bit_without_execute_uppercase_S
+4e239660f8fd/tests.test_presentation.test_align_disabled
+4e239660f8fd/tests.test_presentation.test_align_enabled_dotfiles
+4e239660f8fd/tests.test_presentation.test_align_with_grid_multiple_dotfiles
+4e239660f8fd/tests.test_presentation.test_collapse_with_detailed_view
+4e239660f8fd/tests.test_sorting.test_sort_by_dev
+4e239660f8fd/tests.test_sorting.test_sort_by_user
+4e239660f8fd/tests.test_window_name.test_aligned_with_unicode_dotfiles
+4e239660f8fd/tests.test_window_name.test_cname_empty_after_stripping
+4e239660f8fd/tests.test_window_name.test_cname_sort_case_insensitive
+4e239660f8fd/tests.test_window_name.test_cname_sort_reverse
+4e239660f8fd/tests.test_window_name.test_cname_sort_unicode_normalization
+4e239660f8fd/tests.test_window_name.test_ext_sort_by_extension
+4e239660f8fd/tests.test_window_name.test_ext_with_no_extension_files
